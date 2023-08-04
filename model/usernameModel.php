@@ -16,7 +16,7 @@ class usernameModel
         return ($statement->execute()) ? $this->PDO->lastInsertId() : false;
     }
 
-    public function show()
+    public function show($id)
     {
         $statement = $this->PDO->prepare("SELECT * FROM username WHERE id = :id LIMIT 1");
         $statement->bindParam(":id", $id);
@@ -34,7 +34,7 @@ class usernameModel
         $statement = $this->PDO->prepare("UPDATE username SET nombre = :nombre WHERE id = :id");
         $statement->bindParam(":nombre", $nombre);
         $statement->bindParam(":id", $id);
-        return ($statement->execute()) ? $id : false;
+        return ($statement->execute()) ? true : false;
     }
 
     public function delete($id)

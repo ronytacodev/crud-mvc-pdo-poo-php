@@ -1,8 +1,10 @@
 <?php
-require_once("c://xampp/htdocs/crud-mvc-pdo-poo-php/view/head/head.php");
+include "c://xampp/htdocs/crud-mvc-pdo-poo-php/view/head/head.php";
 require_once("c://xampp/htdocs/crud-mvc-pdo-poo-php/controller/usernameController.php");
 $obj = new usernameController();
-$user = $obj->show($_GET["id"]);
+
+$id = $_GET["id"];
+$user = $obj->show($id);
 // print_r($user);
 ?>
 
@@ -27,5 +29,5 @@ $user = $obj->show($_GET["id"]);
 </form>
 
 <?php
-require_once("c://xampp/htdocs/crud-mvc-pdo-poo-php/view/head/footer.php");
+include "c://xampp/htdocs/crud-mvc-pdo-poo-php/view/head/footer.php";
 ?>
